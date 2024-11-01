@@ -50,4 +50,33 @@ git status
 git logs --oneline 
 
 
+//undo from staged dir --> working dir
+git restore .
+git restore <filename>
+
+//Restore a specific file from a previous commit:
+git checkout <commit-hash> -- <file-name>
+
+//Revert a specific commit:
+git revert <commit-hash>
+
+
+//Revert multiple commits:
+git revert <commit-hash1> <commit-hash2> ...
+
+//Revert and squash into a single commit:
+git revert -n <commit-hash>
+git commit
+
+//Reset cmd:
+git reset --soft <commit-hash>
+git reset --mixed <commit-hash>
+git reset --hard <commit-hash>
+
+
+// staged --> working dir
+git restore --staged <file>
+git restore .
+git rm --cached <file>
+
 ```
