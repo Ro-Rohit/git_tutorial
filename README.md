@@ -79,4 +79,57 @@ git restore --staged <file>
 git restore .
 git rm --cached <file>
 
+
+//to stay up-to-date with main 
+git checkout feature-branch
+git rebase main
+
+//Interactive Rebase
+git rebase -i <base-branch>
+git rebase -i HEAD~3
+
+    pick: Keep the commit as-is.
+    reword: Change the commit message without modifying the commit itself.
+    edit: Pause the rebase at this commit to allow you to make changes to the commit.
+    squash (or s): Combine this commit with the previous one, merging them into a single commit and prompting for a new commit message.
+    drop: Remove the commit from the history.
+
+  1. (SQUASH  COMMIT)
+    pick abc1234 First commit message
+    squash def5678 Second commit message
+    squash ghi9012 Third commit message
+
+  2. (REWORD COMMIT)
+    pick abc1234 First commit message
+    reword def5678 Second commit message
+    pick ghi9012 Third commit message
+
+  3.(EDIT COMMIT)
+    pick abc1234 First commit message
+    edit def5678 Second commit message
+    fixup ghi9012 Third commit message
+
+    git commit --amend <message>
+    git rebase --continue
+
+  
+  4.(DROP COMMIT)
+    pick abc1234 First commit message
+    drop def5678 Second commit message
+    pick ghi9012 Third commit message
+
+
+//move a range of commits onto another branch
+A---B---C---D (main)
+     \
+      E---F---G (feature)
+git checkout feature
+git rebase --onto main B feature
+
+
+//to fetch changes from the remote branch and reapply your local commits ontop
+git pull --rebase origin main
+
+
+
 ```
