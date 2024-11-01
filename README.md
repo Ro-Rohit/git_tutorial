@@ -43,5 +43,11 @@ git branch -d "branch-name"
 // set-upstream to push changes on new branch
 git push --set-upstream origin branch-name
 
+//check status of an staged directory
+git status
+
+//check logs of commit
+git logs --oneline 
+
 
 ```
